@@ -8,12 +8,9 @@ RUN apt-get update\
 
 RUN mkdir /var/run/sshd
 
-RUN echo 'root:root' |chpasswd
-
 RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/^#?UsePAM\s+.*/UsePAM no/g' /etc/ssh/sshd_config
 RUN sed -ri 's/^#?PasswordAuthentication\s+.*/PasswordAuthentication no/' /etc/ssh/sshd_config
-
 
 RUN mkdir /root/.ssh
 
